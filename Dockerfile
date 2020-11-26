@@ -37,6 +37,9 @@ RUN \
 	net-tools \
 	nodejs \
 	sudo \
+	tmux \
+	zsh \
+	vim \
 	yarn && \
  echo "**** install code-server ****" && \
  if [ -z ${CODE_RELEASE+x} ]; then \
