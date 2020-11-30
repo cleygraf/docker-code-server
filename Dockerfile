@@ -40,7 +40,20 @@ RUN \
 	tmux \
 	zsh \
 	vim \
+	gnupg2 \
+	python3-pip \
+	libffi-dev \
+	sshpass \
+	openssh-client \
 	yarn && \
+ echo "**** install ansible ****" && \
+ python3 -m pip install --upgrade pip cffi && \
+    pip install ansible && \
+    pip install mitogen ansible-lint jmespath && \
+    pip install --upgrade pywinrm && \
+ mkdir /ansible && \
+    mkdir -p /etc/ansible && \
+    echo 'localhost' > /etc/ansible/hosts && \	
  echo "**** install code-server ****" && \
  if [ -z ${CODE_RELEASE+x} ]; then \
 	CODE_RELEASE=$(curl -sX GET "https://api.github.com/repos/cdr/code-server/releases/latest" \
